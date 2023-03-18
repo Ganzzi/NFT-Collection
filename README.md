@@ -46,7 +46,7 @@ This web aplication uses the following tech stack:
 To run the application locally, follow these steps:
 
 1. Clone the repository to your local machine using: ``` git clone https://github.com/Ganzzi/NFT-Collection.git ```
-2. Move into folder: ``` cd Street-Food-SaiGon ```
+2. Move into folder: ``` cd NFT-Collection ```
 3. Install: ``` npm install ``` or ``` yarn install ```
 4. Start: ``` npm start ```
 5. Open the application in your web browser at ``` http://localhost:3000 ```
