@@ -63,7 +63,11 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _;
     }
 
-    // function to create a new NFT
+    /**
+        * @notice function to create a new NFT
+        * @param to the address to mint the NFT to
+        * @param uri the URL pointing to the metadata of the NFT
+     */
     function createNft(address to, string calldata uri) public {
         require(to != address(0), "Address zero is not a valid minter address");
         require(bytes(uri).length > 0, "Empty uri");
@@ -73,7 +77,12 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _setTokenURI(tokenId, uri); // set the URI of the NFT
     }
 
-    // function to list NFT into the marketplace
+    /**
+        * @notice function to list NFT into the marketplace
+        * @dev The price set needs to be greater than zero to prevent issues with the notListed and isListed modifiers
+        * @param tokenId the tokenId of the NFT to be listed
+        * @param price the selling price of the NFT
+     */
     function listNft(
         uint256 tokenId,
         uint256 price
@@ -85,7 +94,10 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         emit NftListed(tokenId, msg.sender, price);
     }
 
-    // function to delete item in the mapping
+    /**
+        * @notice function to delete item in the mapping
+        * @dev Only the owner of the NFT can delete the listing and the listing has to be an active one
+     */
     function cancelListing(
         uint256 tokenId
     ) public isListed(tokenId) isOwner(tokenId, msg.sender) {
@@ -95,7 +107,11 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         emit NftListingCancelled(tokenId, msg.sender);
     }
 
-    // function to update price of NFT
+    /**
+        * @notice function to update price of NFT
+        * @param tokenId the tokenId of the NFT to update the listing
+        * @param newPrice the new selling price of the NFT
+     */
     function updateListing(
         uint256 tokenId,
         uint256 newPrice
@@ -110,7 +126,7 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         );
     }
 
-    // function to transfer NFT ownership when someone buy it
+    /// function to transfer NFT ownership when someone buy it
     function buyNft(uint256 tokenId) public payable isListed(tokenId) {
         ListedNFT storage currentNft = _activeItem[tokenId];
         require(msg.sender != currentNft.seller, "Can Not buy your own NFT");
@@ -144,7 +160,7 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         super._burn(tokenId);
     }
 
-    // function go get URI of created NFT
+    /// function go get URI of created NFT
     function tokenURI(
         uint256 tokenId
     ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
@@ -157,7 +173,7 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         return super.supportsInterface(interfaceId);
     }
 
-    // function to get the array that store item that listed
+    /// function to get the array that store item that listed
     function getActiveItem(
         uint256 tokenId
     ) public view returns (ListedNFT memory) {
