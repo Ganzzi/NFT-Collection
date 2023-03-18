@@ -70,6 +70,7 @@ export const createNft = async (
   });
 };
 
+// list an NFT
 export const listNft = async (
   minterContract,
   performActions,
@@ -89,6 +90,7 @@ export const listNft = async (
   });
 };
 
+// buy an NFT
 export const buyNft = async (
   minterContract,
   performActions,
@@ -97,7 +99,6 @@ export const buyNft = async (
   price
 ) => {
   await performActions(async (kit) => {
-    console.log(price);
     const { defaultAccount } = kit;
 
     if (seller == kit.defaultAccount) {
@@ -115,6 +116,7 @@ export const buyNft = async (
   });
 };
 
+// update an NFT price
 export const updateNft = async (
   minterContract,
   performActions,
@@ -133,6 +135,7 @@ export const updateNft = async (
   });
 };
 
+// remove an NFT from marketplace
 export const removeNft = async (minterContract, performActions, tokenId) => {
   await performActions(async (kit) => {
     try {
@@ -187,6 +190,7 @@ export const getNfts = async (minterContract) => {
   }
 };
 
+// fetch all listed NFTs on the smart contract
 export const getActiveItem = async (minterContract) => {
   const activeNfts = [];
   const nftsLength = await minterContract.methods.totalSupply().call();
@@ -225,9 +229,7 @@ export const getActiveItem = async (minterContract) => {
 
     try {
       const resolvedNft = await nft;
-      // if (resolvedNft.seller !== "0x0000000000000000000000000000000000000000") {
       activeNfts.push(resolvedNft);
-      // }
     } catch (e) {
       console.log({ e });
     }
@@ -255,13 +257,3 @@ export const fetchNftOwner = async (minterContract, index) => {
     console.log({ e });
   }
 };
-
-// get the address that deployed the NFT contract
-// export const fetchNftContractOwner = async (minterContract) => {
-//   try {
-//     let owner = await minterContract.methods.owner().call();
-//     return owner;
-//   } catch (e) {
-//     console.log({ e });
-//   }
-// };

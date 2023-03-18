@@ -30,7 +30,6 @@ ReactDOM.render(
       }}
     >
       <Provider>
-        {" "}
         <App />
       </Provider>
     </ContractKitProvider>

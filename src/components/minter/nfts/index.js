@@ -25,8 +25,9 @@ const NftList = ({ minterContract, name }) => {
   const { content, nfts, setNfts, activeNfts, setActiveNfts } =
     React.useContext(x);
 
-  const handleResetAsset = () => getAssets();
+  const handleResetAsset = () => getAssets(); // reset when update or delete NFT
 
+  // function to get NFTs
   const getAssets = async () => {
     try {
       setLoading(true);
@@ -47,6 +48,7 @@ const NftList = ({ minterContract, name }) => {
     }
   };
 
+  // function when click on the sell button, check owner, exist,...
   const sellNft = async (data) => {
     try {
       if (nfts[data.tokenId] === undefined) {
@@ -70,6 +72,7 @@ const NftList = ({ minterContract, name }) => {
     }
   };
 
+  // function when click on the create button
   const addNft = async (data) => {
     try {
       setLoading(true);
@@ -86,6 +89,7 @@ const NftList = ({ minterContract, name }) => {
     }
   };
 
+  // useEffect that get the asset when something change
   useEffect(() => {
     try {
       if (address && minterContract) {
@@ -95,6 +99,7 @@ const NftList = ({ minterContract, name }) => {
       console.log({ error });
     }
   }, [minterContract, address, content]);
+
   if (address) {
     return (
       <>
@@ -103,7 +108,6 @@ const NftList = ({ minterContract, name }) => {
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h1 className="fs-4 fw-bold mb-0">{name}</h1>
 
-              {/* give the add NFT permission to user who deployed the NFT smart contract */}
               {content === "collection" ? (
                 <AddNfts save={addNft} address={address} />
               ) : (

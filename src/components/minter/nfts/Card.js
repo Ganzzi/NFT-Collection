@@ -17,7 +17,6 @@ const NftCard = ({ nft, contract, rerestAsset }) => {
   const { content } = React.useContext(x);
 
   let _price = "";
-
   if (price) {
     _price = price.toString();
   }

@@ -8,6 +8,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 
+// modal that show info to update and remove nft from the marketplace
 const URModal = ({ update, remove, show, onHide }) => {
   const [newPrice, setNewPrice] = useState(0);
 
@@ -24,8 +25,6 @@ const URModal = ({ update, remove, show, onHide }) => {
               type="number"
               placeholder="Enter new price"
               onChange={(e) => {
-                // console.log(e.target.value);
-                // console.log(e.target.value * 10e17);
                 setNewPrice(e.target.value);
               }}
             />
