@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Ganzzi.github.io/NFT-Collection",
   "name": "celo-react-boilerplate",
   "version": "0.1.0",
   "private": true,
@@ -34,7 +35,9 @@
     "eject": "react-scripts eject",
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat run --network alfajores scripts/deploy.js",
-    "test-contract": "npx hardhat test"
+    "test-contract": "npx hardhat test",
+    "predeploy-git": "npm run build",
+    "deploy-git": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
