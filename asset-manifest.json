@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/NFT-Collection/static/css/main.e1ce61ea.chunk.css",
-    "main.js": "/NFT-Collection/static/js/main.fd75d4b8.chunk.js",
-    "main.js.map": "/NFT-Collection/static/js/main.fd75d4b8.chunk.js.map",
+    "main.js": "/NFT-Collection/static/js/main.aecfe851.chunk.js",
+    "main.js.map": "/NFT-Collection/static/js/main.aecfe851.chunk.js.map",
     "runtime-main.js": "/NFT-Collection/static/js/runtime-main.a89bf5e6.js",
     "runtime-main.js.map": "/NFT-Collection/static/js/runtime-main.a89bf5e6.js.map",
     "static/css/2.87b285f8.chunk.css": "/NFT-Collection/static/css/2.87b285f8.chunk.css",
@@ -14,13 +14,14 @@
     "static/css/2.87b285f8.chunk.css.map": "/NFT-Collection/static/css/2.87b285f8.chunk.css.map",
     "static/css/main.e1ce61ea.chunk.css.map": "/NFT-Collection/static/css/main.e1ce61ea.chunk.css.map",
     "static/js/2.428c96fa.chunk.js.LICENSE.txt": "/NFT-Collection/static/js/2.428c96fa.chunk.js.LICENSE.txt",
-    "static/media/bootstrap-icons.css": "/NFT-Collection/static/media/bootstrap-icons.b2e5aab6.woff2"
+    "static/media/bootstrap-icons.css": "/NFT-Collection/static/media/bootstrap-icons.b2e5aab6.woff2",
+    "static/media/nft_geo_cover.2a7cf529.png": "/NFT-Collection/static/media/nft_geo_cover.2a7cf529.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a89bf5e6.js",
     "static/css/2.87b285f8.chunk.css",
     "static/js/2.428c96fa.chunk.js",
     "static/css/main.e1ce61ea.chunk.css",
-    "static/js/main.fd75d4b8.chunk.js"
+    "static/js/main.aecfe851.chunk.js"
   ]
 }
