@@ -101,7 +101,7 @@ export const buyNft = async (
   await performActions(async (kit) => {
     const { defaultAccount } = kit;
 
-    if (seller == kit.defaultAccount) {
+    if (seller === kit.defaultAccount) {
       toast(<NotificationError text="You can not buy your own NFT." />);
     } else {
       try {

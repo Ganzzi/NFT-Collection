@@ -72,14 +72,13 @@ const NftCard = ({ nft, contract, rerestAsset }) => {
             {content === "collection" ? (
               <>
                 <span className="font-monospace text-secondary">
-                  Own by
-                  {owner === address
-                    ? " " + "You"
-                    : " " + truncateAddress(owner)}
+                  Owned by
+                  {owner === address ? ` You` : ` ${truncateAddress(owner)}`}
                 </span>
                 <a
                   href={`https://alfajores-blockscout.celo-testnet.org/address/${owner}/transactions`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Identicon address={owner} size={28} />
                 </a>
@@ -88,13 +87,12 @@ const NftCard = ({ nft, contract, rerestAsset }) => {
               <>
                 <span className="font-monospace text-secondary">
                   Own by
-                  {seller === address
-                    ? " " + "You"
-                    : " " + truncateAddress(seller)}
+                  {seller === address ? ` You` : ` ${truncateAddress(seller)}`}
                 </span>
                 <a
                   href={`https://alfajores-blockscout.celo-testnet.org/address/${seller}/transactions`}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Identicon address={seller} size={28} />
                 </a>
@@ -124,13 +122,13 @@ const NftCard = ({ nft, contract, rerestAsset }) => {
 
           {content === "marketplace" && (
             <div className="d-grid gap-2 mt-1 mb-3">
-              <a
+              <button
                 className="btn btn-lg btn-outline-dark buyBtn fs-6 p-3"
                 onClick={handleBuy}
               >
                 {/* buy for {parseFloat(price * 10e-19)} CELO  */}
                 buy for {parseFloat(web3.utils.fromWei(_price, "ether"))} CELO
-              </a>
+              </button>
             </div>
           )}
 

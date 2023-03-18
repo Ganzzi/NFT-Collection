@@ -129,7 +129,7 @@ const NftList = ({ minterContract, name }) => {
                   ))
                 : activeNfts.map((_nft) => {
                     if (
-                      _nft.seller !=
+                      _nft.seller !==
                       "0x0000000000000000000000000000000000000000"
                     ) {
                       return (
