@@ -49,15 +49,16 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
 
     // modifier to check if an NFT is listed for sale
-    modifier isListed(uint256 tokenId) {    
+    modifier isListed(uint256 tokenId) {
         require(_activeItem[tokenId].price > 0, "Not listed");
         _;
     }
     // modifier to check if the caller is the owner of the NFT
     modifier isOwner(uint256 tokenId, address spender) {
-        require(spender == ownerOf(tokenId),"You are not the owner");
+        require(spender == ownerOf(tokenId), "You are not the owner");
         _;
     }
+
     // function to create a new NFT
     function createNft(address to, string calldata uri) public {
         require(to != address(0), "Address zero is not a valid minter address");
@@ -84,7 +85,6 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     function cancelListing(
         uint256 tokenId
     ) public isListed(tokenId) isOwner(tokenId, msg.sender) {
-        
         // in front-end, we can check because _activeItem[tokenId].seller is "0x000000000000000000000000000000000000000"
         delete _activeItem[tokenId];
 
@@ -108,21 +108,16 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     // function to transfer NFT ownership when someone buy it
     function buyNft(uint256 tokenId) public payable isListed(tokenId) {
-        ListedNFT storage currentNft = _activeItem[tokenId]; 
-        require(
-            msg.sender != currentNft.seller,
-            "Can Not buy your own NFT"
-        );
+        ListedNFT storage currentNft = _activeItem[tokenId];
+        require(msg.sender != currentNft.seller, "Can Not buy your own NFT");
 
         require(msg.value == currentNft.price, "Not enough money!");
         address seller = currentNft.seller;
         delete _activeItem[tokenId]; // when buy successfully, the new owner need to list again that it could be in the marketplace
         _transfer(seller, msg.sender, tokenId);
-        
+
         // Send the correct amount of wei to the seller
-        (bool success, ) = payable(seller).call{value: msg.value}(
-            ""
-        );
+        (bool success, ) = payable(seller).call{value: msg.value}("");
         require(success, "Payment failed");
 
         emit NftBought(tokenId, seller, msg.sender, msg.value);
@@ -149,7 +144,6 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     function tokenURI(
         uint256 tokenId
     ) public view override(ERC721, ERC721URIStorage) returns (string memory) {
-        
         return super.tokenURI(tokenId);
     }
 
@@ -163,7 +157,6 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     function getActiveItem(
         uint256 tokenId
     ) public view returns (ListedNFT memory) {
-        
         return _activeItem[tokenId];
     }
 }
