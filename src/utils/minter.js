@@ -62,7 +62,7 @@ export const createNft = async (
 
       // mint the NFT and save the IPFS url to the blockchain
       return await minterContract.methods
-        .createNft(ownerAddress, url)
+        .mintNft(ownerAddress, url)
         .send({ from: defaultAccount });
     } catch (error) {
       console.log("Error uploading file: ", error);
@@ -101,7 +101,7 @@ export const buyNft = async (
   await performActions(async (kit) => {
     const { defaultAccount } = kit;
 
-    if (seller == kit.defaultAccount) {
+    if (seller === kit.defaultAccount) {
       toast(<NotificationError text="You can not buy your own NFT." />);
     } else {
       try {
