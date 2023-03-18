@@ -1,86 +1,68 @@
-# Celo React Boilerplate
-This repository contains a simple React boilerplate for Celo projects.
+# NFT Collection
+Live Demo: https://ganzzi.github.io/NFT-Collection
 
-## 1. Tech Stack
-This boilerplate uses the following tech stack:
+![Alt text](./src/assets/img/Screenshot.png "Demo")
+
+# Desciption
+Welcome to NFT Collection, a web application enable user to create their own NFTs, also list NFTs into the marketplace to sell, update price, remove from the marketplace. This project was built as part of a coding challenge and serves as a showcase for my coding abilities.
+
+# Feature
+- Create new NFT collections and tokens
+- Customize the metadata of the tokens (name, description, image, etc.)
+- View your own tokens and collections, as well as those of other users
+- Buy and sell tokens on the marketplace, with CELO as the currency
+- Update and remove their own tokens from the marketplace
+- Connect to a wallet (e.g., MetaMask) to interact with the Ethereum network
+
+# Tech Stack
+This web aplication uses the following tech stack:
+- [Solidity](https://docs.soliditylang.org/) - A programming language for Ethereum smart contracts.
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [use-Contractkit](contractkit
 ) - A frontend library for interacting with the Celo blockchain.
 - [Hardhat](https://hardhat.org/) - A tool for writing and deploying smart contracts.
 - [Bootstrap](https://getbootstrap.com/) - A CSS framework that provides responsive, mobile-first layouts.
 
-## 2. Quick Start
+# Usage
+1. Install a wallet:
+   - [CeloExtensionWallet](https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh?hl=en).
+   - [MetamaskExtensionWallet](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en).
+2. Create a wallet.
+3. Go to [https://celo.org/developers/faucet](https://celo.org/developers/faucet) and get tokens for the alfajores testnet.
+4. Switch to the alfajores testnet in the CeloExtensionWallet.
 
-To get this project up running locally, follow these simple steps:
+# Test
+1. Connect yor wallet to the app. Now you are in Collection section.
+1. Create an NFT (fill out all informations: name, description, etc...).
+2. Create a second account in your extension wallet and send them cUSD tokens.
+3. List NFT: move into Marketplace section, click on the sell button, enter token id and price (token id of the NFT you own).
+3. Buy NFT with secondary account.
+4. Check if balance of first account increased.
+5. Add another NFT, list into the marketplace.
+7. Update the price of an NFT that you own.
+8. Remove an product you own from the marketplace.
 
-### 2.1 Clone the repository:
+# Installation
+To run the application locally, follow these steps:
 
-```bash
-git clone https://github.com/dacadeorg/celo-react-boilerplate.git
-```
+1. Clone the repository to your local machine using: ``` git clone https://github.com/Ganzzi/NFT-Collection.git ```
+2. Move into folder: ``` cd Street-Food-SaiGon ```
+3. Install: ``` npm install ``` or ``` yarn install ```
+4. Start: ``` npm start ```
+5. Open the application in your web browser at ``` http://localhost:3000 ```
 
-### 2.2 Navigate to the directory:
+# Contributing
+1. Fork this repository
+2. Create a new branch for your changes: git checkout -b my-feature-branch
+3. Make your changes and commit them: git commit -m "Add my feature"
+4. Push your changes to your fork: git push origin my-feature-branch
+5. Open a pull request to this repository with a description of your changes
 
-```bash
-cd celo-react-boilerplate
-```
+Please make sure that your code follows the Solidity Style Guide and the React Style Guide. You can add tests for any new features or changes, also please make the front-end more friendly. I welcome any contributions or feedback on this project!
 
-### 2.3 Install the dependencies:
+# Problems
+1. The smart contract were not tested carefully (nft-test.js file).
+2. The front-end with bootstrap framwork is quite unfriendly.
+3. And there are some warnings and errors that I don't know how to fit:
 
-```bash
-npm install
-```
-
-### 2.4 Run the dapp:
-
-```bash
-npm start
-```
-
-To properly test the dapp you will need to have a Celo wallet with testnet tokens.
-This learning module [NFT Contract Development with Hardhat](https://hackmd.io/exuZTH2hTqKytn2vxgDmcg) will walk you through the process of creating a Metamask wallet and claiming Alfajores testnet tokens.
-
-The boilerplate should behave like this:
-![](https://raw.githubusercontent.com/dacadeorg/celo-development-201/main/content/gifs/boilerplate_demo.gif)
-
-## 3. Smart-Contract Deployment
-
-You can use your own smart contract that the dapp will interact with by following the steps below:
-
-### 3.1 Add a new smart contract
-Update the contracts/MyContract.sol file with your solidity code. 
-
-Notice that if you change the contract and file name you will also need to update the deploy script that we will use later.
-
-### 3.2 Compile the smart contract
-
-```bash
-npx hardhat compile
-```
-
-### 3.3 Run tests on smart contract
-
-```bash
-npx hardhat test
-```
-
-### 3.4 Update env file
-
-- Create a file in the root directory called ".env"
-- Create a key called MNEMONIC and paste in your mnemonic key. e.g
-
-```js
-MNEMONIC = "...";
-```
-
-In this case, we are using a mnemonic from an account created on Metamask. You can copy it from your Metamask account settings. An account created on the Celo extension wallet will not work.
-
-You can find more details about the whole process in the Dacade [NFT Contract Development with Hardhat](https://hackmd.io/exuZTH2hTqKytn2vxgDmcg) learning module. It will also show you how to get testnet tokens for your account so you can deploy your smart contract in the next step.
-
-### 3.5 Deploy the smart contract to the Celo testnet Aljafores
-
-```bash
-npx hardhat run --network alfajores scripts/deploy.js
-```
-
-This command will update the src/contract files with the deployed smart contract ABI and contract address.
+![Alt text](./src/assets/img/Screenshot2.png "Optional title")
