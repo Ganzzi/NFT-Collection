@@ -179,4 +179,31 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     ) public view returns (ListedNFT memory) {
         return _activeItem[tokenId];
     }
+
+        /**
+     * @dev See {IERC721-transferFrom}.
+     * Changes is made to transferFrom to prevent transfers of a listed NFT
+     */
+    function transferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) public override(IERC721, ERC721) {
+        require(_activeItem[tokenId].price == 0, "You can't transfer a listed NFT");
+        super.transferFrom(from, to, tokenId);
+    }
+
+    /**
+     * @dev See {IERC721-safeTransferFrom}.
+     * Changes is made to safeTransferFrom to prevent transfers of a listed NFT
+     */
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId,
+        bytes memory data
+    ) public override(IERC721, ERC721) {
+        require(_activeItem[tokenId].price == 0, "You can't transfer a listed NFT");
+        _safeTransfer(from, to, tokenId, data);
+    }
 }
