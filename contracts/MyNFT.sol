@@ -24,23 +24,27 @@ contract MyNFT is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     constructor() ERC721("MyNFT", "MNFT") {} // constructor to initialize the contract with name "MyNFT" and symbol "MNFT"
 
-    event NftListingCancelled(uint256 indexed tokenId, address indexed caller); // event emitted when an NFT listing is cancelled
+    // event emitted when an NFT listing is cancelled
+    event NftListingCancelled(uint256 indexed tokenId, address indexed caller); 
+    // event emitted when an NFT is listed for sale
     event NftListed(
         uint256 indexed tokenId,
         address indexed buyer,
         uint256 price
-    ); // event emitted when an NFT is listed for sale
+    ); 
+    // event emitted when an NFT listing is updated
     event NftListingUpdated(
         uint256 indexed tokenId,
         address indexed caller,
         uint256 newPrice
-    ); // event emitted when an NFT listing is updated
+    ); 
+    // event emitted when an NFT is bought
     event NftBought(
         uint256 indexed tokenId,
         address indexed seller,
         address indexed buyer,
         uint256 price
-    ); // event emitted when an NFT is bought
+    ); 
 
     // modifier to check if an NFT is not listed for sale
     modifier notListed(uint256 tokenId) {
