@@ -11,6 +11,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@celo-tools/use-contractkit/lib/styles.css";
 import "react-toastify/dist/ReactToastify.min.css";
+import { Provider } from "./context";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,7 +29,10 @@ ReactDOM.render(
         description: "A React Boilerplate for Celo Dapps",
       }}
     >
-      <App />
+      <Provider>
+        {" "}
+        <App />
+      </Provider>
     </ContractKitProvider>
   </React.StrictMode>,
   document.getElementById("root")
