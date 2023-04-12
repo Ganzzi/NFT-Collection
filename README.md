@@ -4,7 +4,7 @@ Live Demo: https://ganzzi.github.io/NFT-Collection
 ![Alt text](./src/assets/img/Screenshot.png "Demo")
 
 # Desciption
-Welcome to NFT Collection, a web application enable user to create their own NFTs, also list NFTs into the marketplace to sell, update price, remove from the marketplace. This project was built as part of a coding challenge and serves as a showcase for my coding abilities.
+Welcome to NFT Collection, a web application enable user to create their own NFTs, also list NFTs into the marketplace to sell, update price, remove from the marketplace. This project was built as part of a coding challenge and serves as a showcase for my coding abilities. My achievement: https://dacade.org/achievements/f056bb1e-9f92-49bc-82d1-8f301152c792
 
 # Feature
 - Create new NFT collections and tokens
